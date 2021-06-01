@@ -46,7 +46,7 @@ public class AppTest {
     @Test
     public void checkPassword7(){
         App password = new App();
-        boolean answer = password.checkPassword("Hallo123434");
+        boolean answer = password.checkPassword("Hallo123434#");
         assertTrue(answer);
     }
     @Test
@@ -55,6 +55,13 @@ public class AppTest {
         boolean answer=password.checkPassword("Hallo1593*");
         assertFalse(answer);
     }
+    @Test
+    public void checkPassword9(){
+        App password = new App();
+        boolean answer = password.checkPassword("HalloAA123434#");
+        assertTrue(answer);
+    }
+
 
 
 }

@@ -39,6 +39,9 @@ public class App {
 
         if (numbcount > 0 && letcount > 0 && uppercount > 0 && lowercount > 0 && specialcount >0){
             return true;
+
+        //if (uppercount >0 && lowercount >0){
+          //  return true;
         }else{
             return false;
         }
