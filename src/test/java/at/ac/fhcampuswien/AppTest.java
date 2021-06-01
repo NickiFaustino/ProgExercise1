@@ -7,14 +7,14 @@ public class AppTest {
     @Test
     public void checkPassword(){
         App password = new App();
-        boolean answer=password.checkPassword("Hallo1593");
+        boolean answer=password.checkPassword("Hallo1593?");
         assertTrue(answer);
     }
 
     @Test
     public void checkPassword2(){
         App password = new App();
-        boolean answer=password.checkPassword("Hallo");
+        boolean answer=password.checkPassword("Hallo#");
         assertFalse(answer);
     }
 
@@ -31,5 +31,30 @@ public class AppTest {
         boolean answer = password.checkPassword("123123123123");
         assertFalse(answer);
     }
+    @Test
+    public void checkPassword5(){
+        App password = new App();
+        boolean answer = password.checkPassword("hallo1234");
+        assertFalse(answer);
+    }
+    @Test
+    public void checkPassword6(){
+        App password = new App();
+        boolean answer = password.checkPassword("HALLO1234");
+        assertFalse(answer);
+    }
+    @Test
+    public void checkPassword7(){
+        App password = new App();
+        boolean answer = password.checkPassword("Hallo123434");
+        assertTrue(answer);
+    }
+    @Test
+    public void checkPassword8(){
+        App password = new App();
+        boolean answer=password.checkPassword("Hallo1593*");
+        assertFalse(answer);
+    }
+
 
 }
