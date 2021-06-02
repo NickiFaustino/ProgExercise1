@@ -58,7 +58,7 @@ public class AppTest {
     @Test
     public void checkPassword8(){
         App password = new App();
-        boolean answer = password.checkPassword("Hallo123434#");
+        boolean answer = password.checkPassword("Hallo13434#");
         assertTrue(answer);
     }
     @DisplayName("Checks if the password is invalid because it has a different special character")
@@ -72,7 +72,7 @@ public class AppTest {
     @Test
     public void checkPassword10(){
         App password = new App();
-        boolean answer = password.checkPassword("HalloAA123434#");
+        boolean answer = password.checkPassword("HalloAA135#");
         assertTrue(answer);
     }
     @DisplayName("Checks if password is invalid because it has no special characters")
@@ -87,6 +87,34 @@ public class AppTest {
     public void checkPassword12(){
         App password = new App();
         boolean answer = password.checkPassword("???????????????????????");
+        assertFalse(answer);
+    }
+    @DisplayName("Checks if password is invalid because it has the same number 4 times")
+    @Test
+    public void checkPassword13(){
+        App password = new App();
+        boolean answer = password.checkPassword("AbcDef1111#");
+        assertFalse(answer);
+    }
+    @DisplayName("Checks if password is invalid because it has the same number 4 times")
+    @Test
+    public void checkPassword14(){
+        App password = new App();
+        boolean answer = password.checkPassword("AbcDef2222#");
+        assertFalse(answer);
+    }
+    @DisplayName("Checks if password is invalid because the numbers are 123")
+    @Test
+    public void checkPassword15(){
+        App password = new App();
+        boolean answer = password.checkPassword("AbcDef123#");
+        assertFalse(answer);
+    }
+    @DisplayName("Checks if password is invalid because the numbers are 456")
+    @Test
+    public void checkPassword16(){
+        App password = new App();
+        boolean answer = password.checkPassword("AbcDef456#");
         assertFalse(answer);
     }
 

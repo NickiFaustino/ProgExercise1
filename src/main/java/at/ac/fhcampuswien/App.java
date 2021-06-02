@@ -7,6 +7,10 @@ public class App {
     int uppercount = 0;
     int lowercount = 0;
     int specialcount = 0;
+    char previous;
+    char first;
+    int counter;
+    int toomany;
 
 
     public boolean checkPassword(String password){
@@ -19,6 +23,27 @@ public class App {
             if (isNumeric(word)){
                 numbcount++;
                 length++;
+                char c = password.charAt(i);
+                if (previous == c){
+                    counter++;
+                }else{
+                    counter = 1;
+                }
+                if(counter > 3){
+                    return false;
+                }
+                previous = c;
+                char g = password.charAt(i);
+                if (first +1 == g ){
+                    toomany++;
+                }
+                else {
+                    toomany=1;
+                }
+                if (toomany > 2){
+                    return false;
+                }
+                first = g;
             }
             if (isLetter(word)){
                 letcount++;
