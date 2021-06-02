@@ -1,6 +1,7 @@
 package at.ac.fhcampuswien;
 
 public class App {
+    int length=0;
     int letcount = 0;
     int numbcount = 0;
     int uppercount = 0;
@@ -9,39 +10,37 @@ public class App {
 
 
     public boolean checkPassword(String password){
-        if(password.length()>28 && password.length()<8) {
-            return false;
-        }
-        for(int j = 0; j <password.length(); j++){
-            char ch = password.charAt(j);
-            if (isUpper(ch)){
-                uppercount++;
-            }
-            else if (isLower(ch)){
-                lowercount++;
-            }
-            else if (isSpecial(ch)){
-                specialcount++;
-            }
-        }
-
+       // if(password.length()>28 && password.length()<8) {
+         //   return false;
+        //}
         for(int i = 0; i < password.length(); i++){
             char word =  password.charAt(i);
 
             if (isNumeric(word)){
                 numbcount++;
+                length++;
             }
-            else if(isLetter(word)){
+            if (isLetter(word)){
                 letcount++;
+                length++;
             }
-
+            if (isUpper(word)){
+                uppercount++;
+            }
+            if (isLower(word)){
+                lowercount++;
+            }
+            if (isSpecial(word)){
+                specialcount++;
+                length++;
+            }
         }
 
-        if (numbcount > 0 && letcount > 0 && uppercount > 0 && lowercount > 0 && specialcount >0){
+        if (numbcount > 0 && letcount > 0 && uppercount > 0 && lowercount > 0 && specialcount >0 && length > 8 && length < 25){
             return true;
 
-        //if (uppercount >0 && lowercount >0){
-          //  return true;
+            //if (uppercount >0 && lowercount >0){
+            //  return true;
         }else{
             return false;
         }
@@ -53,17 +52,16 @@ public class App {
         return (word >= '0' && word <= '9');
     }
     public static boolean isLetter(char word) {
-        word = Character.toUpperCase(word);
-        return (word >= 'A' && word <= 'Z');
+        return (word >= 'A' && word <= 'Z' || word >= 'a' && word <= 'z');
     }
-    public static boolean isUpper(char ch){
-        return (ch >=65&& ch <= 90);
+    public static boolean isUpper(char word){
+        return (word >=65&& word <= 90);
     }
-    public static boolean isLower(char ch){
-        return (ch >=97&& ch <= 122);
+    public static boolean isLower(char word){
+        return (word >=97&& word <= 122);
     }
-    public static boolean isSpecial(char ch){
-        return (ch =='('|| ch == ')'|| ch =='#' || ch == '$'|| ch =='?'||ch == '!'|| ch =='%' || ch =='/' || ch == '@');
+    public static boolean isSpecial(char word){
+        return (word =='('|| word == ')'|| word =='#'||  word == '$'|| word =='?'||word == '!'|| word =='%'|| word =='/'||  word == '@');
     }
 
     public static void main(String[] args) {
