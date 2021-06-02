@@ -29,7 +29,7 @@ public class App {
                 }else{
                     counter = 1;
                 }
-                if(counter > 3){
+                if(counter > 2){
                     return false;
                 }
                 previous = c;
